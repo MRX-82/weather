@@ -1,8 +1,10 @@
 import requests
+import logistic
 
-s_city = "Razdol'noye, UA"
-city_id = 0
-appid = "cb85156c8938a7e9834aa53346a3f488"
+lg = logistic.GpsWeather()
+s_city = lg.s_city
+city_id = lg.city_id
+appid = lg.appid
 
 try:
     res = requests.get("http://api.openweathermap.org/data/2.5/find",
