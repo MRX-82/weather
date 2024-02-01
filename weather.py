@@ -39,8 +39,8 @@ def wea_five_day():
                                'APPID': appid})
         data=res.json()
         for i in data['list']:
-            print(i['dt_txt'], '{0:+3.0f}'.format(i['main']['temp']), i['weather'][0]['description'])
-
+            fd = (i['dt_txt'], '{0:+3.0f}'.format(i['main']['temp']), i['weather'][0]['description'])
+            return fd
     except Exception as e:
         print("Exception (forecast)", e)
         pass
@@ -54,12 +54,14 @@ def wea_day():
         res = requests.get("http://api.openweathermap.org/data/2.5/weather",
                      params={'id': city_id, 'units': 'metric', 'lang': 'ru', 'APPID': appid})
         data = res.json()
-        print("conditions:", data['weather'][0]['description'])
-        print("temp:", data['main']['temp'])
-        print("temp_min:", data['main']['temp_min'])
-        print("temp_max:", data['main']['temp_max'])
+        conditions = ("conditions:", data['weather'][0]['description'])
+        temp = ("temp:", data['main']['temp'])
+        #temp_min = ("temp_min:", data['main']['temp_min'])
+        #temp_max = ("temp_max:", data['main']['temp_max'])
+        other_weather = [conditions, temp]
+        return (other_weather)
     except Exception as e:
         print("Exception (weather):", e)
         pass
 
-weather = wea_five_day()
+#weather = wea_five_day()
