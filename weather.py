@@ -56,9 +56,9 @@ def wea_day():
         data = res.json()
         conditions = ("conditions:", data['weather'][0]['description'])
         temp = ("temp:", data['main']['temp'])
-        #temp_min = ("temp_min:", data['main']['temp_min'])
-        #temp_max = ("temp_max:", data['main']['temp_max'])
-        other_weather = [conditions, temp]
+        wind_speed = ("wind_speed:", data['wind']['speed'])
+        wind_direction = ("wind_direction:", data['wind']['deg'])
+        other_weather = [conditions, temp, wind_speed, wind_direction]
         return (other_weather)
     except Exception as e:
         print("Exception (weather):", e)
