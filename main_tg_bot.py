@@ -29,7 +29,7 @@ def website(message):
     bot.send_message(message.chat.id, "Zdras'te", reply_markup=markup)
 
 
-@bot.message_handler(func=lambda message: message.text=='Start')
+@bot.message_handler(func=lambda message: message.text=='Dneska')
 def handle_start(message):
     """
     This button write weather on today
