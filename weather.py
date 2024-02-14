@@ -59,9 +59,9 @@ def wea_day():
         temp = ("temp:", data['main']['temp'])
         wind_speed = ("wind_speed:", data['wind']['speed'])
         wind_direction = ("wind_direction:", data['wind']['deg'])
-        #windir = function.WindDirection()
-        #wind_direct = windir.wind_dir(data['wind']['deg'])
-        #wind_direction = wind_direct
+        windir = function.WindDirection()
+        wind_direct = windir.wind_dir(data['wind']['deg'])
+        wind_direction = wind_direct
         other_weather = [conditions, temp, wind_speed, wind_direction]
         return (other_weather)
     except Exception as e:
