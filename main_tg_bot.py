@@ -24,12 +24,11 @@ def website(message):
     """
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=1)
     website = types.KeyboardButton('веб сайт')
-    start = types.KeyboardButton('Start')
+    start = types.KeyboardButton('Dneska')
     markup.add(website, start)
     bot.send_message(message.chat.id, "Zdras'te", reply_markup=markup)
 
-
-@bot.message_handler(func=lambda message: message.text=='Dneska')
+@bot.message_handler(func=lambda message: message.text=="Start")
 def handle_start(message):
     """
     This button write weather on today
