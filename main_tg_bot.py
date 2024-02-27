@@ -47,11 +47,14 @@ def handle_start(message):
     This button write weather on 5 day
     """
     pogoda = weather_five_day()
-    bot.send_message(message.chat.id, f'{pogoda}')
+    #bot.send_message(message.chat.id, f'{pogoda}')
+    for i in range(len(pogoda)-1):
+        bot.send_message(message.chat.id, f'{pogoda[i]}')
+
 
 
 def weather_five_day():
-    weather_now_today = weather.wea_five_day()
+    weather_five_day = weather.wea_five_day()
     return weather_five_day
 
 

@@ -39,9 +39,16 @@ def wea_five_day():
                        params={'id': city_id, 'units': 'metric', 'lang': 'ru',
                                'APPID': appid})
         data=res.json()
+        result = []
         for i in data['list']:
-            fd = (i['dt_txt'], '{0:+3.0f}'.format(i['main']['temp']), i['weather'][0]['description'])
-            return fd
+            fd = (
+                i['dt_txt'], '{0:+3.0f}'.format(i['main']['temp']), (i['weather'][0]['description']),
+                (i['wind']['speed']), (i['wind']['deg'])
+            )
+            result.append(fd)
+        other_pogoda = function.FDR
+        resultation = other_pogoda.restructurizace(result)
+        return resultation
     except Exception as e:
         print("Exception (forecast)", e)
         pass
